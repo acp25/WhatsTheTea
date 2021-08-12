@@ -14,15 +14,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/acp25/WhatsTheTea.git"
+    "url": "git+https://github.com/acp25/whatsthetea.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/acp25/WhatsTheTeaissues"
+    "url": "https://github.com/acp25/whatstheteaissues"
   },
-  "homepage": "https://github.com/acp25/WhatsTheTea#readme",
+  "homepage": "https://github.com/acp25/whatsthetea#readme",
   "devDependencies": {
     "concurrently": "^6.2.1"
   },
