@@ -7,22 +7,40 @@ const typeDefs = gql`
     email: String
     profileImg: String
     pastOrders: [Order]
+    ownedRestaurants: [Restaurant]
   }
 
   type Order {
     _id: ID
+    purchaseDate: String
+    cart: [PurchasedItem]
   }
 
   type PurchasedItem {
     _id: ID
+    quantity: Int
+    addon: String
+    menuItem: MenuItem
   }
 
   type Restaurant {
     _id: ID
+    name: String
+    logo: String
+    location: String
+    tags: String
+    rating: Int
+    menu: [MenuItem]
+    reviews: [Review]
   }
 
   type MenuItem {
     _id: ID
+    name: String
+    image: String
+    description: String
+    price: Float
+    reviews: [Review]
   }
 
   type Review {

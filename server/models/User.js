@@ -28,6 +28,12 @@ const userSchema = new Schema({
             ref: 'Order',
         }
     ],
+    ownedRestaurants: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Restaurant',
+        }
+    ],
 });
 
 // set up pre-save middleware to create password
