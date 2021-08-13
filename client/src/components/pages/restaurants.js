@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './../../styles/float-btn.css'
 
 export default function Restaurants(props) {
 //     const [input, setInput] = useState('');
@@ -58,7 +59,9 @@ export default function Restaurants(props) {
   </section>
 {/* </a> */}
 
-
+<a href="#" class="float">
+<i class="fas fa-shopping-cart my-float"></i>
+</a>
 
     </>
   );
