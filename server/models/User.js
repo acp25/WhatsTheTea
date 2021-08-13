@@ -22,6 +22,9 @@ const userSchema = new Schema({
     profileImg: {
         type: String,
     },
+    address: {
+        type: [String],
+    },
     pastOrders: [
         {
             type: Schema.Types.ObjectId,
@@ -32,6 +35,12 @@ const userSchema = new Schema({
         {
             type: Schema.Types.ObjectId,
             ref: 'Restaurant',
+        }
+    ],
+    reviews: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Review',
         }
     ],
 });
