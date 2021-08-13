@@ -54,8 +54,8 @@ export default function Restaurants(props) {
         
       </div>
       <footer class="card-footer">
-    <a href="#" class="button card-footer-item">Add to cart</a>
-    <a href="#" class="button card-footer-item">Whats the tea?</a>
+    <a href="#" className="button card-footer-item">Add to cart</a>
+    <a href="#" className="button card-footer-item">Whats the tea?</a>
  
   </footer>
     </div>  
@@ -63,7 +63,9 @@ export default function Restaurants(props) {
 
 
 
-
+  <a href="#" className="float">
+<i className="fas fa-shopping-cart my-float"></i>
+</a>
     </>
   );
 }

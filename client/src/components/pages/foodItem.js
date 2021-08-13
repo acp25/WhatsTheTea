@@ -62,7 +62,9 @@ const restaurant = "Taco Bell"
 
 
 
-
+  <a href="#" class="float">
+<i className="fas fa-shopping-cart my-float"></i>
+</a>
     </>
   );
 }

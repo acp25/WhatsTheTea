@@ -59,8 +59,10 @@ export default function Restaurants(props) {
   </section>
 {/* </a> */}
 
+
+
 <a href="#" class="float">
-<i class="fas fa-shopping-cart my-float"></i>
+<i className="fas fa-shopping-cart my-float"></i>
 </a>
 
     </>
