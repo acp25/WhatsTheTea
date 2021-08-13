@@ -136,9 +136,9 @@ const resolvers = {
 
         await User.findByIdAndUpdate(context.user._id, { $push: { pastOrders: order._id } });
 
-        return order.populate('cart.menuItem');
+        return order.populate('cart.menuItem').execPopulate();
       }
-
+      
       throw new AuthenticationError('Not logged in');
     },
     updateUser: async (parent, args, context) => {
