@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 
-export default function Restaurants() {
-
-function Search(props) {
+export default function Restaurants(props) {
     const [input, setInput] = useState('');
     
     const handleSubmit = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
     }
 
+    props.onSubmit({
+        text: input,
+    });
+
+    setInput('')
 }
   return (
     <>
@@ -22,6 +25,7 @@ function Search(props) {
         <p class="control has-icons-right">
             <input 
             type="text"
+            value={input}
             name="text" 
             placeholder="What are you in the mood for..."
                 class="search-bar column input is-medium"
