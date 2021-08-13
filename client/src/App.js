@@ -1,5 +1,4 @@
 import React from 'react';
-import Restaurants from './components/pages/restaurants';
 import Menu from './components/pages/menu';
 import FoodItem from './components/pages/foodItem';
 import Header from './components/header';
@@ -10,7 +9,7 @@ import Account from './components/pages/AccountTemp';
 import Address from './components/pages/AddressTemp';
 import Login from './components/pages/LoginTemp';
 import Nav from './components/pages/Nav';
-import Restaurant from './components/pages/Restaurants';
+import Restaurants from './components/pages/Restaurants';
 
 function App() {
 
@@ -25,10 +24,10 @@ function App() {
           <Route exact path="/login" component={Login} />
         </Switch>
       </div>
-      <Header />
+      {/* <Header /> */}
   {/* <Restaurants /> */}
   {/* <Menu /> */}
-  <FoodItem />
+  {/* <FoodItem /> */}
     </Router>
   );
 }
