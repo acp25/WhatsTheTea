@@ -1,7 +1,7 @@
 import React from 'react';
 import Restaurants from './components/pages/restaurants';
 import Menu from './components/pages/menu';
-
+import FoodItem from './components/pages/foodItem';
 import Header from './components/header';
 
 
@@ -13,7 +13,8 @@ function App() {
     <>
   <Header />
   {/* <Restaurants /> */}
-  <Menu />
+  {/* <Menu /> */}
+  <FoodItem />
   </>
   ) 
 }
