@@ -85,12 +85,12 @@ const resolvers = {
       });
     },
 
-    checkout: async (parent, args, context) => {
+    checkout: async (parent, {cart}, context) => {
       const url = new URL(context.headers.referer).origin;
-      const order = new Order({ products: args.products });
+      const order = new Order({ cart });
       const line_items = [];
 
-      const { products } = await order.populate('products').execPopulate();
+      const { products } = await order.populate('cart.menuItem').execPopulate();
 
       for (let i = 0; i < products.length; i++) {
         const product = await stripe.products.create({
