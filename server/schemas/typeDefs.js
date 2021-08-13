@@ -73,12 +73,13 @@ const typeDefs = gql`
     allRestaurants: [Restaurant]
     allMenuItems: [MenuItem]
     restaurants(searchTerm: String, tag: String): [Restaurant]
-    checkout(products: [ID]!): Checkout
+    restaurant(_id: ID!): Restaurant
+    checkout(cart: [PurchasedItemData]!): Order
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
-    addOrder(cart: [PurchasedItemData]): Order
+    addOrder(cart: [PurchasedItemData]!): Order
     updateUser(username: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
   }
