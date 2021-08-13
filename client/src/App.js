@@ -1,11 +1,26 @@
 import React from 'react';
-import Restaurants from './components/pages/restaurants';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-// TODO: Add a comment explaining what this function is doing
-// This function is a functional component that helps us split the UI into distinct parts.
-// In this case, we are returning another component, <HelloReact/> from it.
+import Account from './components/pages/AccountTemp';
+import Address from './components/pages/AddressTemp';
+import Login from './components/pages/LoginTemp';
+import Nav from './components/pages/Nav';
+import Restaurants from './components/pages/Restaurants';
+
 function App() {
-  return <Restaurants />;
+  return (
+    <Router>
+      <div>
+        <Nav/>
+        <Switch>
+          <Route exact path="/" component={Restaurants} />
+          <Route exact path="/account" component={Account} />
+          <Route exact path="/address" component={Address} />
+          <Route exact path="/login" component={Login} />
+        </Switch>
+      </div>
+    </Router>
+  );
 }
 
 export default App;

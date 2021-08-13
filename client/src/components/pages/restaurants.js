@@ -14,14 +14,7 @@ export default function Restaurants(props) {
 //     setInput('')
 // }
   return (
-    <>
-     
-     <section className="hero is-primary">
-    <span className="hero-body">
-      <p className="title">What's The Tea? <i className="fas fa-mug-hot"></i></p>
-      {/* <!-- <p className="subtitle">Primary subtitle</p>  --> */}
-    </span>
-  </section>
+    <>    
   <form className="search-form"
   //  onSubmit={handleSubmit}
   >
@@ -48,7 +41,7 @@ export default function Restaurants(props) {
       <div className="media">
         <span className="media-left">
           <figure className="image is-128x128">
-            <img src="https://bulma.io/images/placeholders/128x128.png" alt="Placeholder image" />
+            <img src="https://bulma.io/images/placeholders/128x128.png" alt="Placeholder" />
           </figure>
         </span>
         <article className="media-content">
@@ -68,10 +61,6 @@ export default function Restaurants(props) {
     </div>
    
   </section>
-
-
-
-
-    </>
+  </>
   );
 }
