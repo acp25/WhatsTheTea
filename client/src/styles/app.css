@@ -9,6 +9,10 @@
  background-color: var(--dark-LM);
 } */
 
+.navbar {
+    padding-top: 0;
+}
+
 #nav {
     background-color: var(--green-LM);
 }
