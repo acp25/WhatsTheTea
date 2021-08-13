@@ -53,14 +53,14 @@ export default function Restaurants(props) {
         </span>
         <article className="media-content">
           <p className="title is-4">Resturant Name</p>
-          <p class="content">
+          <p className="content">
             Description - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Phasellus nec iaculis mauris. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
-          <button class="button is-info">
+          <button className="button is-info">
             Search
           </button>
-          <button class="button is-info">
+          <button className="button is-info">
             Search
           </button>
         </article>
