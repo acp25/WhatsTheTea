@@ -1,0 +1,24 @@
+:root {
+    /* for light mode */
+    --dark-LM: #272727;
+    --light-LM: #EFFFFB;
+    --blue-LM: #4F98CA;
+    --green-LM: #50D890;
+}
+
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color: var(--green-LM);
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+}
+
+.my-float{
+	margin-top:22px;
+}
