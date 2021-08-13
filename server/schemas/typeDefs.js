@@ -6,34 +6,57 @@ const typeDefs = gql`
     username: String
     email: String
     profileImg: String
+    address: [String]
     pastOrders: [Order]
+    ownedRestaurants: [Restaurant]
+    reviews: [Review]
   }
 
   type Order {
     _id: ID
+    purchaseDate: String
+    cart: [PurchasedItem]
+  }
+
+  input PurchasedItemData {
+    quantity: Int
+    addon: String
+    menuItem: ID
   }
 
   type PurchasedItem {
     _id: ID
+    quantity: Int
+    addon: String
+    menuItem: MenuItem
   }
 
   type Restaurant {
     _id: ID
+    name: String
+    logo: String
+    location: String
+    tags: [String]
+    rating: Int
+    menu: [MenuItem]
+    reviews: [Review]
   }
 
   type MenuItem {
     _id: ID
+    name: String
+    image: String
+    description: String
+    price: Float
+    reviews: [Review]
   }
 
   type Review {
     _id: ID
-    name: String
+    user: User
+    type: String
     content: String
     rating: Int
-  }
-
-  type Checkout {
-    session: ID
   }
 
   type Auth {
@@ -41,14 +64,21 @@ const typeDefs = gql`
     user: User
   }
 
+  type Checkout {
+    session: ID
+  }
+
   type Query {
     user: User
+    allRestaurants: [Restaurant]
+    allMenuItems: [MenuItem]
+    restaurants(searchTerm: String, tag: String): [Restaurant]
     checkout(products: [ID]!): Checkout
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
-    addReview(name: String!, content: String!, rating: Int!, type: String!, itemId: ID! ): Review
+    addOrder(cart: [PurchasedItemData]): Order
     updateUser(username: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
   }

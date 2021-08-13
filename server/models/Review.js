@@ -3,9 +3,12 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const reviewSchema = new Schema({
-    name: {
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+    },
+    type: {
         type: String,
-        required: true,
         trim: true
     },
     content: {
@@ -14,7 +17,7 @@ const reviewSchema = new Schema({
     rating: {
         type: Number,
         default: 3
-    }
+    },
 });
 
 const Review = mongoose.model('Review', reviewSchema);

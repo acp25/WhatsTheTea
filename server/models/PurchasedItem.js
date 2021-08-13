@@ -11,9 +11,9 @@ const purchasedItemSchema = new Schema({
     addon: {
         type: String,
         trim: true,
-        default: ''
+        default: 'no addons'
     },
-    menuitem: 
+    menuItem: 
         {
             type: Schema.Types.ObjectId,
             ref: 'MenuItem',
