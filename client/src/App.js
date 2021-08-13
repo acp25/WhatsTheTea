@@ -4,19 +4,33 @@ import Menu from './components/pages/menu';
 import FoodItem from './components/pages/foodItem';
 import Header from './components/header';
 
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-// TODO: Add a comment explaining what this function is doing
-// This function is a functional component that helps us split the UI into distinct parts.
-// In this case, we are returning another component, <HelloReact/> from it.
+import Account from './components/pages/AccountTemp';
+import Address from './components/pages/AddressTemp';
+import Login from './components/pages/LoginTemp';
+import Nav from './components/pages/Nav';
+import Restaurant from './components/pages/Restaurants';
+
 function App() {
-  return( 
-    <>
-  <Header />
+
+  return (
+    <Router>
+      <div>
+        <Nav/>
+        <Switch>
+          <Route exact path="/" component={Restaurants} />
+          <Route exact path="/account" component={Account} />
+          <Route exact path="/address" component={Address} />
+          <Route exact path="/login" component={Login} />
+        </Switch>
+      </div>
+      <Header />
   {/* <Restaurants /> */}
   {/* <Menu /> */}
   <FoodItem />
-  </>
-  ) 
+    </Router>
+  );
 }
 
 export default App;
