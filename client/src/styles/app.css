@@ -2,6 +2,17 @@
     /* for light mode */
     --dark-LM: #272727;
     --light-LM: #EFFFFB;
-    --blue-LM: #574E6D;
+    --blue-LM: #4F98CA;
     --green-LM: #50D890;
+}
+/* body {
+ background-color: var(--dark-LM);
+} */
+
+#nav {
+    background-color: var(--green-LM);
+}
+
+#mug-color {
+    color: var(--blue-LM);
 }
