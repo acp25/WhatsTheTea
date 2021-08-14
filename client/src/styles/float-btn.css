@@ -22,3 +22,28 @@
 .my-float{
 	margin-top:22px;
 }
+
+.float i {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+  }
+  
+  .float i:after {
+	content: '\00bb';
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: -20px;
+	transition: 0.75s;
+  }
+  
+  .float:hover i {
+	padding-right: 20px;
+  }
+  
+  .float:hover i:after {
+	opacity: 1;
+	right: 0;
+  }
