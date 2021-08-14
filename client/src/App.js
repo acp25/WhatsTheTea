@@ -10,12 +10,13 @@ import Address from './components/pages/AddressTemp';
 import Login from './components/pages/LoginTemp';
 import Nav from './components/pages/Nav';
 import Restaurants from './components/pages/Restaurants';
+import './styles/app.css'
 
 
 function App() {
 
   return (
-    <Router>
+    <Router className="background">
       <div>
         <Nav/>
         <Switch>
@@ -28,7 +29,7 @@ function App() {
       {/* <Header /> */}
   {/* <Restaurants /> */}
   {/* <Menu /> */}
-  {/* <FoodItem /> */}
+  <FoodItem />
     </Router>
   );
 }
