@@ -52,25 +52,28 @@ db.once('open', async () => {
   await Restaurant.deleteMany();
   const Restaurants = await Restaurant.insertMany([
     { 
-        name: 'Korean Chicken',
+        name: 'Korean Chicken House',
+        description: 'We sell the best Korean Chicken in the neighborhood!',
         logo: 'https://res.cloudinary.com/dx1djlhrd/image/upload/v1628783142/placeholder-300x202_jlbtx4.jpg',
-        location: 'adress1',
+        location: 'address 1',
         tags: ['asian', 'korean'],
         rating: 3,
         menu: [MenuItems[0]._id, MenuItems[1]._id, MenuItems[2]._id]
     },
     { 
         name: 'Jamba Juice',
+        description: 'Bringing a modern twist to the classic smoothie.',
         logo: 'https://res.cloudinary.com/dx1djlhrd/image/upload/v1628783142/placeholder-300x202_jlbtx4.jpg',
-        location: 'adress2',
+        location: 'address2',
         tags: ['healthy'],
         rating: 4,
         menu: [MenuItems[3]._id, MenuItems[4]._id]
     },
     { 
         name: 'BurgerJoint',
+        description: 'A quaint dive and local favorite.',
         logo: 'https://res.cloudinary.com/dx1djlhrd/image/upload/v1628783142/placeholder-300x202_jlbtx4.jpg',
-        location: 'adress3',
+        location: 'address 3',
         tags: ['burger'],
         rating: 2,
         menu: [MenuItems[5]._id, MenuItems[6]._id]

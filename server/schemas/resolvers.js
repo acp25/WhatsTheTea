@@ -22,6 +22,27 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
 
+    allMenuItems: async () => {
+      const menuItems = await MenuItem.find({})
+      .populate({
+        path: 'reviews',
+          populate: {
+            path: 'user'
+          }
+      });
+      return menuItems;
+    },
+
+    menuItem: async (parent, { _id }) => {
+      return await MenuItem.findById(_id)
+      .populate({
+        path: 'reviews',
+          populate: {
+            path: 'user'
+          }
+      });
+    },
+
     allRestaurants: async () => {
       const restaurants = await Restaurant.find({})
       .populate({
@@ -40,17 +61,6 @@ const resolvers = {
         }
       });
       return restaurants;
-    },
-
-    allMenuItems: async () => {
-      const menuItems = await MenuItem.find({})
-      .populate({
-        path: 'reviews',
-          populate: {
-            path: 'user'
-          }
-      });
-      return menuItems;
     },
 
     restaurants: async (parent, { searchTerm, tag }) => {
@@ -108,12 +118,38 @@ const resolvers = {
       const url = new URL(context.headers.referer).origin;
       const order = new Order({ cart });
       const line_items = [];
-
       const newOrder = await order.populate('cart.menuItem').execPopulate();
+      for (let i = 0; i < newOrder.cart.length; i++) {
+        const product = await stripe.products.create({
+          name: newOrder.cart[i].menuItem.name,
+          description: newOrder.cart[i].menuItem.description,
+          images: [`${newOrder.cart[i].menuItem.image}`]
+        });
 
-      return newOrder;
+        const price = await stripe.prices.create({
+          product: product.id,
+          unit_amount: newOrder.cart[i].menuItem.price * 100,
+          currency: 'usd',
+        });
+
+        line_items.push({
+          price: price.id,
+          quantity: newOrder.cart[i].quantity
+        });
+      }
+
+      const session = await stripe.checkout.sessions.create({
+        payment_method_types: ['card'],
+        line_items,
+        mode: 'payment',
+        success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${url}/`
+      });
+
+      return { session: session.id };
     }
   },
+
   Mutation: {
     addUser: async (parent, args) => {
       const user = await User.create(args);

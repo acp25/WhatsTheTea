@@ -1,18 +1,10 @@
 import React from "react";
 import { useStoreContext } from '../../utils/GlobalState';
 import { TOGGLE_CART, ADD_TO_CART } from '../../utils/actions';
-import { useQuery } from '@apollo/client';
-import { QUERY_ALLRESTAURANTS } from '../../utils/queries';
 
 export default function Test(props) {
 
     const [state, dispatch] = useStoreContext();
-
-    const { data } = useQuery(QUERY_ALLRESTAURANTS);
-
-    if(data){
-        console.log(data);
-    }
 
     const toggle = () => {
         dispatch({ type: TOGGLE_CART });
