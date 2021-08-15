@@ -45,10 +45,10 @@ export default function ShoppingCart() {
       </p>
       </section>
 
-      <a href="#" class="float">
+      <div class="float">
         <i className="far fa-credit-card my-float">
-          <br/>Pay</i>
-    </a>
+          <br />Pay</i>
+      </div>
     </>
   );
 }

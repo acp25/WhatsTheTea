@@ -78,7 +78,7 @@ export default function Restaurants(props) {
                 </article>
               </div>
               <footer className="card-footer">
-                <a href="#"
+                <a
                   value={index}
                   onClick={() => handleSubmit(index)}
                   className="button card-footer-item"
@@ -89,7 +89,10 @@ export default function Restaurants(props) {
           </section>
         )
       })}
-      
+    
+    <Link to="/cart" className="float">
+        <i className="fas fa-shopping-cart my-float"></i>
+    </Link>
     </>
   );
 }
