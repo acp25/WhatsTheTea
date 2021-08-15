@@ -26,7 +26,7 @@ export default function Nav(props) {
                         </li>
                         <li className="nav-item">
                             <Link to="/login"  className="nav-link p-3" href="#account">
-                            <span className="nav-text">Sign In</span>
+                            <span className="nav-text">Log In</span>
                             </Link>
                         </li>
                     </ul>

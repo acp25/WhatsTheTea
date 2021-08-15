@@ -34,6 +34,7 @@ const typeDefs = gql`
   type Restaurant {
     _id: ID
     name: String
+    description: String
     logo: String
     location: String
     tags: [String]
@@ -70,11 +71,12 @@ const typeDefs = gql`
 
   type Query {
     user: User
-    allRestaurants: [Restaurant]
     allMenuItems: [MenuItem]
+    menuItem(_id: ID!): MenuItem
+    allRestaurants: [Restaurant]
     restaurants(searchTerm: String, tag: String): [Restaurant]
     restaurant(_id: ID!): Restaurant
-    checkout(cart: [PurchasedItemData]!): Order
+    checkout(cart: [PurchasedItemData]!): Checkout
   }
 
   type Mutation {
