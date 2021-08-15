@@ -33,12 +33,12 @@ const restaurant = "Taco Bell"
           </figure>
         </span>   
         <article className="media-content">
-          <p className="title is-4">posted by: {user}</p>
-          <p className="content">
+          <p className="title is-4 text-shadow">posted by: {user}</p>
+          <p className="content text-shadow">
             Review - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Phasellus nec iaculis mauris. 
           </p>
-          <div class="rate">
+          <div class="rate text-shadow">
     <input type="radio" id="star5" name="rate" value="5" />
     <label for="star5" title="text">5 stars</label>
     <input type="radio" id="star4" name="rate" value="4" />
@@ -62,7 +62,9 @@ const restaurant = "Taco Bell"
 
 
 
-
+  <a href="#" class="float">
+<i className="fas fa-shopping-cart my-float"></i>
+</a>
     </>
   );
 }

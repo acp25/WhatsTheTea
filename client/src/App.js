@@ -14,6 +14,7 @@ import Address from './components/pages/AddressTemp';
 import Login from './components/pages/LoginTemp';
 import Nav from './components/pages/Nav';
 import Restaurants from './components/pages/Restaurants';
+import ShoppingCart from './components/pages/ShoppingCart';
 import Test from './components/pages/Test';
 
 const httpLink = createHttpLink({
