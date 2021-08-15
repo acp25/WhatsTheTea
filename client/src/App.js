@@ -13,7 +13,7 @@ import Account from './components/pages/AccountTemp';
 import Address from './components/pages/AddressTemp';
 import Login from './components/pages/LoginTemp';
 import Nav from './components/pages/Nav';
-import Restaurants from './components/pages/Restaurants';
+import Restaurants from './components/pages/restaurants';
 import Success from './components/pages/SuccessTemp';
 import ShoppingCart from './components/pages/ShoppingCart';
 import Test from './components/pages/Test';
