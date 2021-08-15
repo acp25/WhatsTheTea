@@ -40,7 +40,7 @@ export default function ShoppingCart() {
         </tbody>
       </table>
 
-      <p className="text-shadow">
+      <p className="text-shadow subtotal">
       <strong>Subtotal:</strong> (Somehow grab all items, multiply each qty by price and add together.)
       </p>
       </section>
