@@ -31,7 +31,7 @@ export default function Restaurants(props) {
         </span>
     </p>
     <span className="buttons is-centered">
-      <button className="button is-info">
+      <button className="button">
         Search
       </button>
     </span>

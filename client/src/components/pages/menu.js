@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './../../styles/app.css';
 import "./../../styles/ratings.css";
 
 export default function Restaurants(props) {
@@ -16,7 +17,7 @@ export default function Restaurants(props) {
   // }
   return (
     <>
-      <h1>Name of Place</h1>
+      <h1>Name of Place - Hello from menu.js</h1>
 
       <section className="card">
         <div className="card-content">
@@ -30,8 +31,8 @@ export default function Restaurants(props) {
               </figure>
             </span>
             <article className="media-content">
-              <p className="title is-4">Food Item</p>
-              <p className="content">
+              <p className="title is-4 text-shadow">Food Item</p>
+              <p className="content text-shadow">
                 Description - Lorem ipsum dolor sit amet, consectetur adipiscing
                 elit. Phasellus nec iaculis mauris.
               </p>
@@ -60,11 +61,11 @@ export default function Restaurants(props) {
             </article>
           </div>
           <footer className="card-footer">
-            <a href="#" className="button card-footer-item">
+            <a href="#" className="button card-footer-item menu-button">
               Add to cart
             </a>
-            <a href="#" className="button card-footer-item">
-              Whats the tea?
+            <a href="#" className="button card-footer-item menu-button">
+              Whats the tea?  <i className="mug-color fas fa-mug-hot "> </i>
             </a>
           </footer>
         </div>
