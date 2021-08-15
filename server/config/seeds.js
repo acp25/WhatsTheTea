@@ -6,43 +6,43 @@ db.once('open', async () => {
   const MenuItems = await MenuItem.insertMany([
     {
       name: "Honey Chicken",
-      image: "https://res.cloudinary.com/dx1djlhrd/image/upload/v1628783142/placeholder-300x202_jlbtx4.jpg",
+      image: "https://res.cloudinary.com/dlfeadcs5/image/upload/v1629047429/IMG_8295_znrh1l.jpg",
       description: "Crispy chicken with a honey glaze",
       price: 11.99,
     },
     {
       name: "Garlic Chicken",
-      image: "https://res.cloudinary.com/dx1djlhrd/image/upload/v1628783142/placeholder-300x202_jlbtx4.jpg",
+      image: "https://res.cloudinary.com/dlfeadcs5/image/upload/v1629047436/IMG_8296_uetjsw.jpg",
       description: "Garlic infused crispy chicken",
       price: 11.99,
     },
     {
       name: "House Special",
-      image: "https://res.cloudinary.com/dx1djlhrd/image/upload/v1628783142/placeholder-300x202_jlbtx4.jpg",
+      image: "https://res.cloudinary.com/dlfeadcs5/image/upload/v1629047446/IMG_8297_sac1zo.jpg",
       description: "Crispy Chicken tossed with original house blend",
       price: 10.99,
     },
     {
       name: "Berry Blast",
-      image: "https://res.cloudinary.com/dx1djlhrd/image/upload/v1628783142/placeholder-300x202_jlbtx4.jpg",
+      image: "https://res.cloudinary.com/dlfeadcs5/image/upload/v1629047453/IMG_8298_iq9mjo.jpg",
       description: "The ultimate berry blend",
       price: 7.99,
     },
     {
       name: "Honeydew Greentea",
-      image: "https://res.cloudinary.com/dx1djlhrd/image/upload/v1628783142/placeholder-300x202_jlbtx4.jpg",
+      image: "https://res.cloudinary.com/dlfeadcs5/image/upload/v1629047462/IMG_8299_kasb7q.jpg",
       description: "Honeydew blended with a greentea infusion",
       price: 8.99,
     },
     {
       name: "Cheeseburger",
-      image: "https://res.cloudinary.com/dx1djlhrd/image/upload/v1628783142/placeholder-300x202_jlbtx4.jpg",
+      image: "https://res.cloudinary.com/dlfeadcs5/image/upload/v1629047469/IMG_8300_klbqz2.jpg",
       description: "A house standard cheeseburger",
       price: 9.99,
     },
     {
       name: "Double Up Burger",
-      image: "https://res.cloudinary.com/dx1djlhrd/image/upload/v1628783142/placeholder-300x202_jlbtx4.jpg",
+      image: "https://res.cloudinary.com/dlfeadcs5/image/upload/v1629047668/IMG_8301_wwrils.webp",
       description: "Double patty cheeseburger",
       price: 13.99,
     },
@@ -52,28 +52,25 @@ db.once('open', async () => {
   await Restaurant.deleteMany();
   const Restaurants = await Restaurant.insertMany([
     { 
-        name: 'Korean Chicken House',
-        description: 'We sell the best Korean Chicken in the neighborhood!',
-        logo: 'https://res.cloudinary.com/dx1djlhrd/image/upload/v1628783142/placeholder-300x202_jlbtx4.jpg',
-        location: 'address 1',
+        name: 'Korean Chicken',
+        logo: 'https://res.cloudinary.com/dlfeadcs5/image/upload/v1629047478/IMG_8302_slzopg.png',
+        location: 'adress1',
         tags: ['asian', 'korean'],
         rating: 3,
         menu: [MenuItems[0]._id, MenuItems[1]._id, MenuItems[2]._id]
     },
     { 
         name: 'Jamba Juice',
-        description: 'Bringing a modern twist to the classic smoothie.',
-        logo: 'https://res.cloudinary.com/dx1djlhrd/image/upload/v1628783142/placeholder-300x202_jlbtx4.jpg',
-        location: 'address2',
+        logo: 'https://res.cloudinary.com/dlfeadcs5/image/upload/v1629047484/IMG_8303_anldxc.jpg',
+        location: 'adress2',
         tags: ['healthy'],
         rating: 4,
         menu: [MenuItems[3]._id, MenuItems[4]._id]
     },
     { 
         name: 'BurgerJoint',
-        description: 'A quaint dive and local favorite.',
-        logo: 'https://res.cloudinary.com/dx1djlhrd/image/upload/v1628783142/placeholder-300x202_jlbtx4.jpg',
-        location: 'address 3',
+        logo: 'https://res.cloudinary.com/dlfeadcs5/image/upload/v1629047492/IMG_8304_kghybf.png',
+        location: 'adress3',
         tags: ['burger'],
         rating: 2,
         menu: [MenuItems[5]._id, MenuItems[6]._id]
