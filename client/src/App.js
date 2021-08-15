@@ -15,7 +15,7 @@ import Login from './components/pages/LoginTemp';
 import Nav from './components/pages/Nav';
 import Restaurants from './components/pages/Restaurants';
 import Success from './components/pages/SuccessTemp';
-
+import ShoppingCart from './components/pages/ShoppingCart';
 import Test from './components/pages/Test';
 import Menu from './components/pages/menu';
 import FoodItem from './components/pages/foodItem';
@@ -54,6 +54,7 @@ function App() {
               <Route exact path="/menu/:restaurantId" component={Menu} />
               <Route exact path="/fooditem/:restaurant/:foodItemId" component={FoodItem} />
               <Route exact path="/success" component={Success} />
+              <Route exact path="/cart" component={ShoppingCart} />
             </Switch>
           </StoreProvider>
         </div>

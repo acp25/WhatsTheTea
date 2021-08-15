@@ -2,6 +2,83 @@
     /* for light mode */
     --dark-LM: #272727;
     --light-LM: #EFFFFB;
-    --blue-LM: #574E6D;
+    --blue-LM: #4F98CA;
+    --l-blue-LM: #5db2eb;
     --green-LM: #50D890;
+    --d-green-LM: #50D890;
+    --orange: #FF884B;
+    --neon-blue: #342EAD;
+    --yellow: #E5D429;
+}
+
+html, body {
+    background-color: lightblue;
+}
+
+.navbar {
+    padding-top: 0;
+}
+
+#nav {
+    background-image: linear-gradient(to bottom right, var(--blue-LM), var(--neon-blue));
+}
+
+#teaTitle {
+    color: var(--green-LM);
+}
+
+.nav-text {
+    color: white;
+}
+
+.mug-color {
+    color: var(--yellow);
+}
+
+.spin {
+    animation: rotation 7s infinite linear;
+  }
+  
+  @keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+
+.card {
+    background-image: radial-gradient(white, var(--blue-LM), var(--neon-blue));
+    border: var(--dark-LM) 3px solid;
+    border-radius: 40px;
+}
+
+.card-table {
+    background-image: radial-gradient(white, var(--blue-LM), var(--neon-blue));
+    border: var(--dark-LM) 3px solid;
+    border-radius: 0px 0px 40px 40px;
+}
+
+.text-shadow {
+    text-shadow: 0px 0px 8px var(--light-LM);
+}
+
+.card-footer {
+    border-style:none;
+}
+
+.button{
+    text-decoration:none;
+    background-color: var(--light-LM);
+    transition: 0.3s;
+}
+
+.button:hover {
+    background-color:  var(--d-green-LM);
+    color: var();
+}
+
+.subtotal {
+    text-align: center;
 }

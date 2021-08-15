@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useLazyQuery } from '@apollo/client';
 import { QUERY_RESTAURANTS } from '../../utils/queries';
 import { Link } from 'react-router-dom';
+import './../../styles/float-btn.css'
 
 export default function Restaurants(props) {
   
@@ -50,12 +51,12 @@ return (
           value={searchMessage}
           onChange={handleInputChange}
         ></input>
-        <span className="icon is-small is-right">
-          <i className="fas fa-mug-hot"></i>
+        <span className="icon is-small is-right spin">
+          <i className="fas fa-mug-hot mug-color"></i>
         </span>
       </p>
       <span className="buttons is-centered">
-        <button className="button is-info">
+        <button className="button">
           Search
         </button>
       </span>
@@ -63,26 +64,33 @@ return (
     <br />
     {restaurants.map((item, index) => {
       return (
-        
-        <Link to={`/menu/${item._id}`} key = {index} className="card text-decoration-none">
-          <div className="card-content">
-            <div className="media">
-              <span className="media-left">
-                <figure className="image is-128x128">
-                  <img src={item.logo} alt="Placeholder img" />
-                </figure>
-              </span>
-              <article className="media-content">
-                <p className="title is-4">{item.name}</p>
-                <p className="content">
-                  {item.description}
-                </p>
-              </article>
-            </div>
+        <section className="card" key={index}>
+        <div className="card-content">
+          <div className="media">
+            <span className="media-left">
+              <figure className="image is-128x128">
+                <img src={item.logo} alt="Placeholder img" />
+              </figure>
+              <Link to={`/menu/${item._id}`} key = {index} className=" has-text-centered text-decoration-none">
+                <button href="#" className="button">See Menu</button>
+              </Link>
+            </span>   
+            <article className="media-content">
+              <p className="title is-4 text-shadow">{item.name}</p>
+              <p className="content text-shadow">
+                {item.description}
+              </p>
+            </article>
           </div>
-        </Link>
+        </div>
+        </section>
       )
     })}
-  </>
-);
+
+    <a href="/cart" class="float">
+        <i className="fas fa-shopping-cart my-float"></i>
+    </a>
+
+    </>
+  );
 }

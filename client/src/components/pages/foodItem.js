@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import "./../../styles/ratings.css"
 import { useParams } from 'react-router-dom';
@@ -11,8 +12,8 @@ export default function Restaurants(props) {
     variables: { _id: foodItemId }
   });
 
-  if(loading){
-    return(
+  if (loading) {
+    return (
       <h1>Loading ...</h1>
     )
   }
@@ -31,11 +32,11 @@ export default function Restaurants(props) {
                   </figure>
                 </span>
                 <article className="media-content">
-                  <p className="title is-4">posted by: {item.user.username}</p>
-                  <p className="content">
+                  <p className="title is-4 text-shadow">posted by: {item.user.username}</p>
+                  <p className="content text-shadow">
                     {item.content}
                   </p>
-                  <div class="rate">
+                  <div class="rate text-shadow">
                     <input type="radio" id="star5" name="rate" value="5" />
                     <label for="star5" title="text">5 stars</label>
                     <input type="radio" id="star4" name="rate" value="4" />
@@ -53,6 +54,10 @@ export default function Restaurants(props) {
           </section>
         );
       })}
+
+      <a href="#" className="float">
+        <i className="fas fa-shopping-cart my-float"></i>
+      </a>
     </>
   );
 }
