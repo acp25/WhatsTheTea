@@ -6,14 +6,37 @@ import { useQuery } from '@apollo/client';
 import { QUERY_RESTAURANT } from '../../utils/queries';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { ADD_TO_CART, UPDATE_CART_QUANTITY } from '../../utils/actions';
+import { useStoreContext } from '../../utils/GlobalState';
 
 export default function Restaurants(props) {
+
+  const [state, dispatch] = useStoreContext();
+  const { cart } = state;
 
   const { restaurantId } = useParams();
 
   const { loading, data } = useQuery(QUERY_RESTAURANT, {
     variables: { _id: restaurantId }
   });
+
+  const handleSubmit = (index) => {
+    let itemCopy = {...data.restaurant.menu[index]}
+    console.log(itemCopy);
+    const itemInCart = cart.find((cartItem) => cartItem._id === itemCopy._id);
+    if (itemInCart) {
+      dispatch({
+        type: UPDATE_CART_QUANTITY,
+        _id: itemInCart._id,
+        quantity: parseInt(itemInCart.quantity) + 1
+      });
+    } else {
+      dispatch({
+        type: ADD_TO_CART,
+        purchasedItem: { quantity: 1, addon: 'no addon', ...itemCopy }
+      });
+    }
+  }
 
   if(loading){
     return(
@@ -55,7 +78,11 @@ export default function Restaurants(props) {
                 </article>
               </div>
               <footer className="card-footer">
-                <a href="#" className="button card-footer-item">Add to cart</a>
+                <a href="#"
+                  value={index}
+                  onClick={() => handleSubmit(index)}
+                  className="button card-footer-item"
+                >Add to cart</a>
                 <Link to={`/fooditem/${data.restaurant.name}/${item._id}`} href="#" className="button card-footer-item">Whats the tea?</Link>
               </footer>
             </div>

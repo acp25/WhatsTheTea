@@ -2,11 +2,11 @@ import { gql } from '@apollo/client';
 
 //TODO: update checkout Query
 export const QUERY_CHECKOUT = gql`
-  query getCheckout($products: [ID]!) {
-    checkout(products: $products) {
-      session
-    }
-  }
+query checkout($cart: [PurchasedItemData]!) {
+  checkout(cart: $cart) {
+    session
+  } 
+}
 `;
 
 export const QUERY_USER = gql`
