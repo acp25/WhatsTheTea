@@ -79,3 +79,6 @@ html, body {
     color: var();
 }
 
+.subtotal {
+    text-align: center;
+}
