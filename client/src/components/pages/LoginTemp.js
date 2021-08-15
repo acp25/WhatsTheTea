@@ -14,7 +14,7 @@ export default function Login(props) {
     <label for="sign-in-form-password">Password</label>
     <input type="password" class="sign-in-form-password" id="sign-in-form-password"></input>
    
-    <button type="submit" class="button button-rounded-hover">Sign In</button>
+    <button class="button is-link">Sign In</button>
     </center>
   </div>
 </form>
