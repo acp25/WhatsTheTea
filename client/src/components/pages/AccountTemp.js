@@ -24,7 +24,16 @@ export default function Account(props) {
 </div></center>
         </section>
 
-
+<section>
+<h4>Change Password</h4> 
+    <form class="password-form">
+    <label for="new-password" style="font-size: 20px;">New Password</label>
+    <input type="password" class="new-password" id="new-password"></input>
+    <label for="confirm-new-password" style="font-size: 20px;">Confirm New Password</label>
+    <input type="password" class="confirm-new-password" id="confirm-new-password"> </input>
+    <button class="button is-link">Save Changes</button>
+    </form>
+    </section>
 
 {/* <script>
 const fileInput = document.querySelector('#file-js-example input[type=file]');
