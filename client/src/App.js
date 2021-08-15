@@ -10,13 +10,12 @@ import Address from './components/pages/AddressTemp';
 import Login from './components/pages/LoginTemp';
 import Nav from './components/pages/Nav';
 import Restaurants from './components/pages/Restaurants';
-import './styles/app.css'
-
+import ShoppingCart from './components/pages/ShoppingCart';
 
 function App() {
 
   return (
-    <Router className="background">
+    <Router>
       <div>
         <Nav/>
         <Switch>
@@ -24,12 +23,14 @@ function App() {
           <Route exact path="/account" component={Account} />
           <Route exact path="/address" component={Address} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/cart" component={ShoppingCart} />
         </Switch>
       </div>
       {/* <Header /> */}
   {/* <Restaurants /> */}
   {/* <Menu /> */}
-  <FoodItem />
+  {/* <FoodItem /> */}
+  {/* <ShoppingCart /> */}
     </Router>
   );
 }
