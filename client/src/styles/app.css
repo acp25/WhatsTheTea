@@ -11,8 +11,8 @@
     --yellow: #E5D429;
 }
 
-.backgroud {
- background-color: var(--dark-LM);
+html, body {
+    background-color: lightblue;
 }
 
 .navbar {
@@ -54,6 +54,28 @@
     border-radius: 40px;
 }
 
+.card-table {
+    background-image: radial-gradient(white, var(--blue-LM), var(--neon-blue));
+    border: var(--dark-LM) 3px solid;
+    border-radius: 0px 0px 40px 40px;
+}
+
 .text-shadow {
     text-shadow: 0px 0px 8px var(--light-LM);
 }
+
+.card-footer {
+    border-style:none;
+}
+
+.button{
+    text-decoration:none;
+    background-color: var(--light-LM);
+    transition: 0.3s;
+}
+
+.button:hover {
+    background-color:  var(--d-green-LM);
+    color: var();
+}
+
