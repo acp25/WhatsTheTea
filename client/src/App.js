@@ -13,9 +13,12 @@ import Account from './components/pages/AccountTemp';
 import Address from './components/pages/AddressTemp';
 import Login from './components/pages/LoginTemp';
 import Nav from './components/pages/Nav';
-import Restaurants from './components/pages/Restaurants';
+import Restaurants from './components/pages/restaurants';
+import Success from './components/pages/SuccessTemp';
 import ShoppingCart from './components/pages/ShoppingCart';
 import Test from './components/pages/Test';
+import Menu from './components/pages/menu';
+import FoodItem from './components/pages/foodItem';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -46,10 +49,12 @@ function App() {
             <Switch>
               <Route exact path="/" component={Restaurants} />
               <Route exact path="/account" component={Account} />
-              <Route exact path="/address" component={Address} />
+              <Route exact path="/address" component={Test} />
               <Route exact path="/login" component={Login} />
-              <Route exact path="/test" component={Test} />
-              <Route exact path="/menu/:restaurantId" component={Test} />
+              <Route exact path="/menu/:restaurantId" component={Menu} />
+              <Route exact path="/fooditem/:restaurant/:foodItemId" component={FoodItem} />
+              <Route exact path="/success" component={Success} />
+              <Route exact path="/cart" component={ShoppingCart} />
             </Switch>
           </StoreProvider>
         </div>

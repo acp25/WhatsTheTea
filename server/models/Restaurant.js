@@ -8,6 +8,9 @@ const restaurantSchema = new Schema({
         required: true,
         trim: true
     },
+    description: {
+        type: String
+    },
     logo: {
         type: String
     },
