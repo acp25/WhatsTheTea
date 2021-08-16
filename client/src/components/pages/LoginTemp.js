@@ -38,16 +38,20 @@ export default function Login(props) {
                             <input type="password" className="confirm-password" id="confirm-password"></input>
 
                             <h3 className="text-center">Choose a Profile Picture</h3>
-                            <center><div id="file-js-example" className="file has-name">
-                                <label className="file-label">
-                                    <input className="file-input" type="file" name="resume"></input>
-                                    <span className="file-cta">
-                                        <span className="file-icon">
-                                            <i className="fas fa-upload"></i>
+                            <center>
+                                <div id="file-js-example" className="file has-name">
+                                    <label className="file-label">
+                                        <input className="file-input" type="file" name="resume"></input>
+                                        <span className="file-cta">
+                                            <span className="file-icon">
+                                                <i className="fas fa-upload"></i>
+                                            </span>
+                                            <span className="file-label">Upload a profile pic</span>
                                         </span>
-                                        <span className="file-label"> Upload a profile pic</span></span>
-                                    <span className="file-name"> No file uploaded </span></label>
-                            </div></center>
+                                        <span className="file-name"> No file uploaded </span>
+                                    </label>
+                                </div>
+                            </center>
                             <p><button className="button is-link">Sign Up</button></p>
                         </center>
                     </div>

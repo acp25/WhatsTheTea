@@ -54,6 +54,7 @@ db.once('open', async () => {
     { 
         name: 'Korean Chicken',
         logo: 'https://res.cloudinary.com/dlfeadcs5/image/upload/v1629047478/IMG_8302_slzopg.png',
+        description: "The best chicken this side of the city!",
         location: 'adress1',
         tags: ['asian', 'korean'],
         rating: 3,
@@ -62,6 +63,7 @@ db.once('open', async () => {
     { 
         name: 'Jamba Juice',
         logo: 'https://res.cloudinary.com/dlfeadcs5/image/upload/v1629047484/IMG_8303_anldxc.jpg',
+        description: "Bringing the modern mix to an old formula",
         location: 'adress2',
         tags: ['healthy'],
         rating: 4,
@@ -70,6 +72,7 @@ db.once('open', async () => {
     { 
         name: 'BurgerJoint',
         logo: 'https://res.cloudinary.com/dlfeadcs5/image/upload/v1629047492/IMG_8304_kghybf.png',
+        description: "The local neighborhood mainstay",
         location: 'adress3',
         tags: ['burger'],
         rating: 2,
