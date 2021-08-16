@@ -64,12 +64,12 @@ return (
     <br />
     {restaurants.map((item, index) => {
       return (
-        <section className="card" key={index}>
-        <div className="card-content">
+        <section className="card columns" key={index}>
+        <div className="card-content column is-6">
           <div className="media">
             <span className="media-left">
               <figure className="image is-128x128">
-                <img src={item.logo} alt="Placeholder img" />
+                <img className="is-rounded" src={item.logo} alt="Placeholder img" />
               </figure>
               <Link to={`/menu/${item._id}`} key = {index} className=" has-text-centered text-decoration-none">
                 <button href="#" className="button">See Menu</button>
