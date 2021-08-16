@@ -19,7 +19,7 @@ import ShoppingCart from './components/pages/ShoppingCart';
 import Test from './components/pages/Test';
 import Menu from './components/pages/menu';
 import FoodItem from './components/pages/foodItem';
-
+import './styles/font.css'
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
