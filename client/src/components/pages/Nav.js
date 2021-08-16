@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import './../../styles/app.css' 
+import Auth from '../../utils/auth';
 
 export default function Nav(props) {
     return (
@@ -25,9 +26,13 @@ export default function Nav(props) {
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/login"  className="nav-link p-3" href="#account">
-                            <span className="nav-text">Log In</span>
-                            </Link>
+                            {Auth.loggedIn() ?
+                                (<a href="/" onClick={() => Auth.logout()} className="nav-link p-3">
+                                    <span className="nav-text">Log Out</span>
+                                </a>) :
+                                (<Link to="/login" className="nav-link p-3" href="#account">
+                                    <span className="nav-text">Log In</span>
+                                </Link>)}
                         </li>
                     </ul>
                 </div>
