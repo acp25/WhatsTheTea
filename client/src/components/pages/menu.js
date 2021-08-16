@@ -51,7 +51,7 @@ export default function Restaurants(props) {
               <div className="media">
                 <span className="media-left">
                   <figure className="image is-128x128">
-                    <img src={item.image} alt="Placeholder img" />
+                    <img className="is-rounded" src={item.image} alt="Placeholder img" />
                   </figure>
                 </span>
                 <article className="media-content">
