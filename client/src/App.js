@@ -19,7 +19,7 @@ import ShoppingCart from './components/pages/ShoppingCart';
 import Menu from './components/pages/menu';
 import FoodItem from './components/pages/foodItem';
 import './styles/font.css'
-import Test from './components/pages/Test';
+// import Test from './components/pages/Test';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -56,7 +56,7 @@ function App() {
               <Route exact path="/fooditem/:restaurant/:foodItemId" component={FoodItem} />
               <Route exact path="/success" component={Success} />
               <Route exact path="/cart" component={ShoppingCart} />
-              <Route exact path="/test" component={Test} />
+              {/* <Route exact path="/test" component={Test} /> */}
             </Switch>
           </StoreProvider>
         </div>
