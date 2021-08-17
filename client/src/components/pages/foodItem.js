@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import "./../../styles/ratings.css";
 import "./../../styles/loading.css";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_MENUITEM } from "../../utils/queries";
 import { ADD_REVIEW } from '../../utils/mutations';
