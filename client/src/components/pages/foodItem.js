@@ -63,7 +63,7 @@ const handleInputChange = (e) => {
               <div className="media">
                 <span className="media-left">
                   <figure className="image is-128x128">
-                    <img src={item.user.profileImg} alt="Placeholder img" />
+                    <img src={item.user.image} alt="Placeholder img" />
                   </figure>
                 </span>
                 <article className="media-content">
