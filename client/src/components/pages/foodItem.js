@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+import React, { useState } from "react";
 import "./../../styles/ratings.css";
 import "./../../styles/loading.css";
 import { useParams } from "react-router-dom";
@@ -13,6 +13,26 @@ export default function Restaurants(props) {
     variables: { _id: foodItemId },
   });
 
+const [comment, setComment] = useState('');
+
+const handleInputChange = (e) => {
+  const { target } = e;
+  const inputType = target.name;
+  const inputValue = target.value;
+
+  if (inputType) {
+    setComment(inputValue);
+  }
+}
+ const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    alert(`the comment is ${comment}`)
+    setComment('');
+  }
+
+
+
   if (loading) {
     return (
       <>
@@ -24,7 +44,7 @@ export default function Restaurants(props) {
 
   return (
     <>
-      <h1 className="is-centered">
+      <h1 className="is-centered text-shadow">
         The Tea On... {data.menuItem.name} from {restaurant}
       </h1>
       {data.menuItem.reviews.map((item, index) => {
@@ -71,37 +91,53 @@ export default function Restaurants(props) {
         );
       })}
 <br/>
+
+{/* <section>
+{props.reviews.map((review) => {
+  return (
+  <div>
+    {review.comment}
+    </div> 
+    )
+})}
+  </section> */}
+  
       <form className="form  text-shadow" 
-      // onSubmit={handleSubmit}
+      onSubmit={handleFormSubmit}
       >
         <div className="field is-horizontal">
-          <div className="field-label is-normal">
+          <span className="field-label is-normal">
             <label className="label has-text-centered">What's your tea?</label>
-          </div>
-          <div className="field-body">
+          </span>
+          <section className="field-body">
             <div className="field">
-              <div className="control">
+              <span className="control">
                 <textarea
                   className="textarea"
                   placeholder="..."
-                  // value={TeaComment}
-                  // onChange={handleInputChange}
+                  name="comment"
+                  id="comment"
+                  value={comment}
+                  type="text"
+                  onChange={handleInputChange}
                 ></textarea>
-              </div>
+              </span>
             </div>
-          </div>
+          </section>
         </div>
 
-        <div className="column is-10 field is-horizontal">
+        <section className="column is-10 field is-horizontal">
           <div className="field-label"></div>
-          <div className="field-body">
+          <section className="field-body">
             <div className="field">
-              <div className="control">
-                <button className="button">Submit</button>
-              </div>
+              <span className="control">
+                <button className="button"
+                onClick={handleFormSubmit}
+                >Submit</button>
+              </span>
             </div>
-          </div>
-        </div>
+          </section>
+        </section>
       </form>
 
       <a href="#" className="float">
