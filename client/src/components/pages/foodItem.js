@@ -3,12 +3,13 @@ import React, { useState } from "react";
 import "./../../styles/ratings.css";
 import "./../../styles/loading.css";
 import { useParams } from "react-router-dom";
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_MENUITEM } from "../../utils/queries";
+import { ADD_REVIEW } from '../../utils/mutations';
 
 export default function Restaurants(props) {
   const { restaurant, foodItemId } = useParams();
-
+  const [addReview] = useMutation(ADD_REVIEW);
   const { loading, data } = useQuery(QUERY_MENUITEM, {
     variables: { _id: foodItemId },
   });
@@ -27,7 +28,14 @@ const handleInputChange = (e) => {
  const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    alert(`the comment is ${comment}`)
+    await addReview({
+      variables: {
+        content: comment,
+        itemId: foodItemId,
+      },
+    });
+
+    // alert(`the comment is ${comment}`)
     setComment('');
   }
 
@@ -93,7 +101,7 @@ const handleInputChange = (e) => {
 <br/>
 
 {/* <section>
-{props.reviews.map((review) => {
+{props.review.map((review) => {
   return (
   <div>
     {review.comment}
