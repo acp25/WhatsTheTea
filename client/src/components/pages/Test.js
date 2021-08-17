@@ -1,68 +1,129 @@
-import React, { useEffect } from 'react';
-import { useStoreContext } from '../../utils/GlobalState';
-import { TOGGLE_CART } from '../../utils/actions';
-import { useLazyQuery } from '@apollo/client';
-import { QUERY_CHECKOUT } from '../../utils/queries';
-import { loadStripe } from '@stripe/stripe-js';
+import React, { useState } from 'react';
+import { useMutation } from '@apollo/client';
+import { LOGIN , ADD_USER } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 
 export default function Test(props) {
+    const [formState, setFormState] = useState({ email: '', password: '' });
+  const [login, { error }] = useMutation(LOGIN);
 
-    const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
-
-    const [state, dispatch] = useStoreContext();
-    const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
-
-    const toggle = () => {
-        dispatch({ type: TOGGLE_CART });
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const mutationResponse = await login({
+        variables: { email: formState.email, password: formState.password },
+      });
+      const token = mutationResponse.data.login.token;
+      Auth.login(token);
+    } catch (e) {
+      console.log(e);
     }
+  };
 
-    useEffect(() => {
-        if (data) {
-            stripePromise.then((res) => {
-                res.redirectToCheckout({ sessionId: data.checkout.session });
-            });
-        }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [data]);
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
 
-    function submitCheckout() {
-        const cart = [];
+  const [signState, setSignState] = useState({ email: '', password: '' });
+  const [addUser] = useMutation(ADD_USER);
 
-        state.cart.forEach((item) => {
-            cart.push({
-                addon: item.addon,
-                quantity: item.quantity,
-                menuItem: item._id,
-            });
-        });
+  const handleSignSubmit = async (event) => {
+    event.preventDefault();
+    const mutationResponse = await addUser({
+      variables: {
+        email: signState.email,
+        password: signState.password,
+        username: signState.username,
+      },
+    });
+    const token = mutationResponse.data.addUser.token;
+    Auth.login(token);
+  };
 
-        getCheckout({
-            variables: { cart },
-        });
-    }
+  const handleSignChange = (event) => {
+    const { name, value } = event.target;
+    setSignState({
+      ...signState,
+      [name]: value,
+    });
+  };
 
     return (
-        <section>
-            <h1>This is a Test page that will be removed later</h1>
-            <h1>{state.cartOpen ? 'true' : 'false'}</h1>
-            <div onClick={toggle}>Click me to toggle!</div>
-            <br/>
-            <br/>
-            <br/>
-            <div>
-                <h2>Cart</h2>
-                {state.cart.map((item) => {
-                    return (
-                        <section className="border">
-                            <div>name:{item.name}</div>
-                            <div>price:{item.price}</div>
-                            <div>quantity:{item.quantity}</div>
-                            <div>quantity:{item._id}</div>
-                        </section>
-                    )
-                })}
+        <>
+            <div className="container my-1">
+                <h2>Login</h2>
+                <form onSubmit={handleFormSubmit}>
+                    <div className="flex-row space-between my-2">
+                        <label htmlFor="email">Email address:</label>
+                        <input
+                            placeholder="youremail@test.com"
+                            name="email"
+                            type="email"
+                            id="email"
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="flex-row space-between my-2">
+                        <label htmlFor="pwd">Password:</label>
+                        <input
+                            placeholder="******"
+                            name="password"
+                            type="password"
+                            id="pwd"
+                            onChange={handleChange}
+                        />
+                    </div>
+                    {error ? (
+                        <div>
+                            <p className="error-text">The provided credentials are incorrect</p>
+                        </div>
+                    ) : null}
+                    <div className="flex-row flex-end">
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
             </div>
-            <button onClick={submitCheckout}>Checkout</button>
-        </section>
-    );
+            <div className="container my-1">
+                <h2>Signup</h2>
+                <form onSubmit={handleSignSubmit}>
+                    <div className="flex-row space-between my-2">
+                        <label htmlFor="username">Username:</label>
+                        <input
+                            name="username"
+                            type="username"
+                            id="username"
+                            onChange={handleSignChange}
+                        />
+                    </div>
+                    <div className="flex-row space-between my-2">
+                        <label htmlFor="email">Email:</label>
+                        <input
+                            placeholder="youremail@test.com"
+                            name="email"
+                            type="email"
+                            id="email"
+                            onChange={handleSignChange}
+                        />
+                    </div>
+                    <div className="flex-row space-between my-2">
+                        <label htmlFor="pwd">Password:</label>
+                        <input
+                            placeholder="******"
+                            name="password"
+                            type="password"
+                            id="pwd"
+                            onChange={handleSignChange}
+                        />
+                    </div>
+                    <div className="flex-row flex-end">
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </>
+  );
 }

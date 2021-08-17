@@ -87,9 +87,9 @@ return (
       )
     })}
 
-    <a href="/cart" className="float">
+    <Link to="/cart" className="float">
         <i className="fas fa-shopping-cart my-float"></i>
-    </a>
+    </Link>
 
     </>
   );
