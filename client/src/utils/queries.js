@@ -1,11 +1,12 @@
 import { gql } from '@apollo/client';
 
+//TODO: update checkout Query
 export const QUERY_CHECKOUT = gql`
-  query getCheckout($products: [ID]!) {
-    checkout(products: $products) {
-      session
-    }
-  }
+query checkout($cart: [PurchasedItemData]!) {
+  checkout(cart: $cart) {
+    session
+  } 
+}
 `;
 
 export const QUERY_USER = gql`
@@ -29,7 +30,6 @@ export const QUERY_USER = gql`
   }
 `;
 
-
 export const QUERY_ALLRESTAURANTS = gql`
 query allRestaurants{
   allRestaurants{
@@ -39,6 +39,53 @@ query allRestaurants{
     menu{
       name
       price
+    }
+  }
+}
+`;
+
+export const QUERY_RESTAURANTS = gql`
+query restaurants($searchTerm: String, $tag: String){
+  restaurants(searchTerm: $searchTerm, tag: $tag){
+    _id
+    name
+    description
+    logo
+  }
+}
+`;
+
+export const QUERY_RESTAURANT = gql`
+query restaurant($_id: ID!){
+  restaurant(_id : $_id){
+    name
+    menu{
+      _id
+      name
+      description
+      image
+      price
+    }
+  }
+}
+`;
+
+export const QUERY_MENUITEM = gql`
+query menuItem($_id: ID!){
+  menuItem(_id: $_id){
+    _id
+    name
+    image
+    description
+    price
+    reviews{
+      user{
+        username
+        email
+        profileImg
+      }
+      content
+      rating
     }
   }
 }
