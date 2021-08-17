@@ -115,19 +115,7 @@ export default function Login(props) {
                         onChange={handleSignChange}
                     />
                 </div>
-                <h2>Choose a Profile Picture</h2>
-                                <div id="file-js-example" className="file has-name">
-                                    <label className="file-label">
-                                        <input className="file-input" type="file" name="resume"></input>
-                                        <span className="file-cta">
-                                            <span className="file-icon">
-                                                <i className="fas fa-upload"></i>
-                                            </span>
-                                            <span className="file-label">Upload a profile pic</span>
-                                        </span>
-                                        <span className="file-name"> No file uploaded </span>
-                                    </label>
-                                </div>
+                
                 <div className="flex-row flex-end">
                     <button type="submit" className="button is-link">Submit</button>
                 </div>
