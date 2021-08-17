@@ -18,6 +18,7 @@ import Success from './components/pages/ShoppingSuccess';
 import ShoppingCart from './components/pages/ShoppingCart';
 import Menu from './components/pages/menu';
 import FoodItem from './components/pages/foodItem';
+import './styles/font.css'
 // import Test from './components/pages/Test';
 
 const httpLink = createHttpLink({

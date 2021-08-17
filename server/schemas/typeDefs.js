@@ -84,6 +84,7 @@ const typeDefs = gql`
     addOrder(cart: [PurchasedItemData]!): Order
     updateUser(username: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
+    addReview(content: String, itemId: ID): Review
   }
 `;
 

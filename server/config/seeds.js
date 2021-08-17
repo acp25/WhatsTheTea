@@ -56,7 +56,8 @@ db.once('open', async () => {
         logo: 'https://res.cloudinary.com/dlfeadcs5/image/upload/v1629047478/IMG_8302_slzopg.png',
         description: "The best chicken this side of the city!",
         location: 'adress1',
-        tags: ['asian', 'korean'],
+        description: 'A Korean-American fusion restaurant.',
+        tags: ['asian', 'korean', 'chicken'],
         rating: 3,
         menu: [MenuItems[0]._id, MenuItems[1]._id, MenuItems[2]._id]
     },
@@ -65,7 +66,8 @@ db.once('open', async () => {
         logo: 'https://res.cloudinary.com/dlfeadcs5/image/upload/v1629047484/IMG_8303_anldxc.jpg',
         description: "Bringing the modern mix to an old formula",
         location: 'adress2',
-        tags: ['healthy'],
+        description: 'Delicious and quick smoothies and freshly squeezed juices.',
+        tags: ['healthy', 'smoothie', 'juice'],
         rating: 4,
         menu: [MenuItems[3]._id, MenuItems[4]._id]
     },
@@ -74,7 +76,8 @@ db.once('open', async () => {
         logo: 'https://res.cloudinary.com/dlfeadcs5/image/upload/v1629047492/IMG_8304_kghybf.png',
         description: "The local neighborhood mainstay",
         location: 'adress3',
-        tags: ['burger'],
+        description: 'A classic burger joint.',
+        tags: ['burger', 'cheeseburger'],
         rating: 2,
         menu: [MenuItems[5]._id, MenuItems[6]._id]
     },
