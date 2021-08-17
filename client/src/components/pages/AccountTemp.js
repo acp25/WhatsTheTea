@@ -1,14 +1,45 @@
-import React from "react";
-
+import React, { useState } from "react";
 export default function Account(props) {
+
+const [loading,setLoading] = useState(false)
+const [image,setImage] = useState("")
+
+  const uploadImage = async e => {
+    const files = e.target.files
+    const data = new FormData()
+    data.append('file',files[0])
+    data.append('upload_preset', 'profileimage')
+    setLoading(true)
+
+    const res = await fetch("https://api.cloudinary.com/v1_1/dlfeadcs5/image/upload",
+    {
+      method:'POST',
+      body:data
+    })
+
+    const file = await res.json()
+
+    console.log(file)
+  
+    setImage(file.secure_url)
+    setLoading(false)
+  }
+
     return (
         <>
                 <h1 className="title">Account Settings</h1>
-                <div className="image is-128x128">
-                    <img className="is-rounded" src="https://bulma.io/images/placeholders/128x128.png" alt="profile"></img>
-                </div>
+                <input type="file" name="file" placeholder="Upload Profile Image" 
+                onChange={uploadImage}/>             
+            
+            {
+              loading?(
+                <h1>Loading ...</h1>
+              ):(
+                <p><img src={image} style={{width:'128px'}}/></p>
+              )
+            }
                 <br></br>
-                <section><div id="file-js-example" className="file has-name">
+                {/* <section><div id="file-js-example" className="file has-name">
                     <label className="file-label">
                         <input className="file-input" type="file" name="resume"></input>
                         <span className="file-cta">
@@ -19,7 +50,7 @@ export default function Account(props) {
                         </span>
                         <span className="file-name"> No file uploaded </span>
                     </label>
-                </div></section>
+                </div></section> */}
          <br></br>
 
                <h4>Change Password</h4>
