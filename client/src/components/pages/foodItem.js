@@ -37,6 +37,7 @@ const handleInputChange = (e) => {
 
     // alert(`the comment is ${comment}`)
     setComment('');
+    window.location.reload(false);
   }
 
 
